@@ -1,0 +1,28 @@
+{
+  "name": "diplomaProject",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx playwright test",
+    "report": "npx playwright show-report",
+    "codegen": "npx playwright codegen",
+    "ui": "npx playwright test --ui"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/grishamalchik/diplomaProject.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/grishamalchik/diplomaProject/issues"
+  },
+  "homepage": "https://github.com/grishamalchik/diplomaProject#readme",
+  "description": "",
+  "devDependencies": {
+    "@faker-js/faker": "^10.2.0",
+    "@playwright/test": "^1.58.1",
+    "@types/node": "^24.10.1"
+  }
+}
