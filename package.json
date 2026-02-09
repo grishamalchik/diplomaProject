@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "npx playwright test",
+    "test": "export ENVIRONMENT=autoTest && npx playwright test",
     "report": "npx playwright show-report",
     "codegen": "npx playwright codegen",
     "ui": "npx playwright test --ui"
@@ -22,7 +22,9 @@
   "description": "",
   "devDependencies": {
     "@faker-js/faker": "^10.2.0",
-    "@playwright/test": "^1.58.1",
-    "@types/node": "^24.10.1"
+    "@playwright/test": "^1.58.2",
+    "@types/node": "^24.10.1",
+    "allure": "^3.1.0",
+    "allure-playwright": "^3.4.5"
   }
 }

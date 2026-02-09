@@ -9,7 +9,7 @@ export class MainPage {
 
     async gotoRegister() {
         return test.step('Перейти на страницу Регистрации', async (step) => {
-            this.signupLink.click();
+            await this.signupLink.click();
         })
     }
 
