@@ -7,12 +7,11 @@ export class ArticleBuilder {
     }
 
     withDescription(description) {
-        this.description = description ?? faker.lorem.paragraph(); // 'Allen Brown'
+        this.description = description ?? faker.lorem.paragraph();
         return this;
-
     }
     withBody(body) {
-        this.body = faker.lorem.text();
+        this.body = body ?? faker.lorem.text();
         return this;
 
     }
