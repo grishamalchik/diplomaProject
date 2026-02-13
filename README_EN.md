@@ -27,7 +27,7 @@
 
 A diploma project for test automation, including **UI** and **API** tests.
 
-**UI Tests** — 5 functional automated tests for [Conduit](https://conduit-realworld-example-app.onrender.com/) application (article publishing platform).
+**UI Tests** — 5 functional automated tests for [Conduit](https://realworld.qa.guru/) application (article publishing platform).
 
 **API Tests** — 5 functional automated tests for [API Challenges](https://apichallenges.eviltester.com/) service.
 
