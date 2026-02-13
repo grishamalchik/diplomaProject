@@ -1,0 +1,17 @@
+{
+    "base": {
+        "project": "hipstaboy diploma project js",
+        "environment": "some env",
+        "comment": "some comment",
+        "reportLink": "",
+        "language": "en",
+        "allureFolder": "allure-report",
+        "enableChart": false,
+        "enableSuitesPublishing": false
+    },
+    "telegram": {
+        "token": "",
+        "chat": "",
+        "replyTo": ""
+    }
+}

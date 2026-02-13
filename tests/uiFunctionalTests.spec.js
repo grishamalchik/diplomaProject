@@ -6,7 +6,7 @@ import { faker } from '@faker-js/faker';
 import { test } from '../src/helpers/fixtures/fixture';
 
 
-test.describe('Тесты с зарегистрированным пользователем', () => {
+test.describe('Tests with registered user', () => {
     let user;
 
     test.beforeEach(async ({ app }) => {
@@ -17,7 +17,7 @@ test.describe('Тесты с зарегистрированным пользов
         await app.register.register(name, email, password);
     });
 
-    test('Пользователь может изменить имя', async ({ app }) => {
+    test('User can change their name', async ({ app }) => {
         const newName = faker.person.fullName();
 
         await app.userHome.clickUserMenuDropdownButton();
@@ -28,7 +28,7 @@ test.describe('Тесты с зарегистрированным пользов
         await expect(app.settings.userMenuDropdownButton).toContainText(newName);
     });
 
-    test('Пользователь может создать статью', async ({ app }) => {
+    test('User can create a new article', async ({ app }) => {
         const article = new ArticleBuilder().withTitle().withDescription().withBody().withTags().build();
         const { title, description, body, tags } = article;
 
@@ -41,7 +41,7 @@ test.describe('Тесты с зарегистрированным пользов
 
 });
 
-test.describe('Тесты с зарегистрированным пользователем и добавленной статьей', () => {
+test.describe('Tests with registered user and created article', () => {
 
     let user;
     let article;
@@ -51,7 +51,7 @@ test.describe('Тесты с зарегистрированным пользов
         const { email, name, password } = user;
         article = new ArticleBuilder().withTitle().withDescription().withBody().withTags().build();
         const { title, description, body, tags } = article;
-  
+
         await app.main.open('/');
         await app.main.gotoRegister();
         await app.register.register(name, email, password);
@@ -60,7 +60,7 @@ test.describe('Тесты с зарегистрированным пользов
         await app.newArticle.clickPublishArticleButton();
     });
 
-    test('Пользователь может добавить комментарий к статье', async ({ app }) => {
+    test('User can add a comment to the article', async ({ app }) => {
         const commentText = faker.lorem.text();
 
         await app.createdArticle.fillNewCommentTextbox(commentText);
@@ -69,7 +69,7 @@ test.describe('Тесты с зарегистрированным пользов
         await expect(app.createdArticle.publishedCommentTextbox).toContainText(commentText);
     });
 
-    test('Пользователь может отредактировать статью', async ({ app }) => {
+    test('User can edit the article', async ({ app }) => {
         const newBody = faker.lorem.text();
 
         await app.createdArticle.clickEditArticleButton();
@@ -80,7 +80,7 @@ test.describe('Тесты с зарегистрированным пользов
     });
 
 
-    test('Пользователь может удалить статью', async ({ app }) => {
+    test('User can delete the article', async ({ app }) => {
         await app.createdArticle.deleteArticle();
 
         await expect(app.userHome.yourFeedButton).toContainText('Your Feed');

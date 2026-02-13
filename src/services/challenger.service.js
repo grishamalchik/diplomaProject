@@ -8,11 +8,9 @@ export class ChallengerService {
     async post(testInfo) {
         return test.step('POST /challenger', async () => {
             const response = await this.request.post(`${testInfo.project.use.apiUrl}challenger`);
-
             const headers = response.headers();
             return { headers }
         }
-
         )
     }
 }

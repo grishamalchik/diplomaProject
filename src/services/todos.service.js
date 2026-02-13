@@ -43,7 +43,7 @@ export class TodosService {
     };
 
     async getTodosFilteredByDone(testInfo, token) {
-        return test.step('GET /todos (200) ? filter', async () => {
+        return test.step("GET /todos filtered by 'Done'", async () => {
             const response = await this.request.get(`${testInfo.project.use.apiUrl}todos?doneStatus=true`,
                 {
                     headers:
@@ -60,7 +60,7 @@ export class TodosService {
 
 
     async createNewTodo(testInfo, token, newTodoData) {
-        return test.step('POST /todos (201)', async () => {
+        return test.step('POST /todos', async () => {
 
             const response = await this.request.post(`${testInfo.project.use.apiUrl}todos`,
                 {
@@ -75,7 +75,7 @@ export class TodosService {
     };
 
     async updateTodoTitle(testInfo, token, todoId, newTitle) {
-        return test.step('PUT /todos/{id} partial (200)', async () => {
+        return test.step('PUT /todos/{id} change of the title', async () => {
 
             const response = await this.request.put(`${testInfo.project.use.apiUrl}todos/${todoId}`,
                 {
@@ -90,7 +90,7 @@ export class TodosService {
     };
 
     async deleteTodo(testInfo, token, todoId) {
-        return test.step('DELETE /todos/{id} (200)', async () => {
+        return test.step('DELETE /todos/{id}', async () => {
 
             const response = await this.request.delete(`${testInfo.project.use.apiUrl}todos/${todoId}`,
                 {

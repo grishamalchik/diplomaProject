@@ -1,3 +1,5 @@
+import { test } from '@playwright/test';
+
 export class UserHomePage {
     constructor(page) {
         this.page = page;
@@ -8,14 +10,20 @@ export class UserHomePage {
     }
 
     async clickUserMenuDropdownButton() {
-        await this.userMenuDropdownButton.click();
+        return test.step("Click 'User' menu dropdown button ", async (step) => {
+            await this.userMenuDropdownButton.click();
+        })
     }
 
     async clickSettingsMenuButton() {
-        await this.settingsMenuButton.click();
+        return test.step("Click 'Settings' menu dropdown button ", async (step) => {
+            await this.settingsMenuButton.click();
+        })
     }
 
     async clickCreateNewArticleButton() {
-        await this.createNewArticleButton.click();
+        return test.step("Click 'Create new article' button", async (step) => {
+            await this.createNewArticleButton.click();
+        })
     }
 }

@@ -1,0 +1,212 @@
+<h1 align="center">Дипломный проект по автоматизации тестирования UI и API</h1>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Playwright-45ba4b?style=for-the-badge&logo=Playwright&logoColor=white" alt="Playwright"/>
+  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript"/>
+  <img src="https://img.shields.io/badge/Allure-FF6B00?style=for-the-badge&logo=allure&logoColor=white" alt="Allure"/>
+  <img src="https://img.shields.io/badge/Jenkins-D24939?style=for-the-badge&logo=jenkins&logoColor=white" alt="Jenkins"/>
+  <img src="https://img.shields.io/badge/GitHub_Actions-2088FF?style=for-the-badge&logo=github-actions&logoColor=white" alt="GitHub Actions"/>
+</p>
+
+## 📋 Содержание
+
+- [Описание](#описание)
+- [Технологии и инструменты](#технологии-и-инструменты)
+- [Архитектура проекта](#архитектура-проекта)
+- [Настройка окружения](#настройка-окружения)
+- [Запуск тестов](#запуск-тестов)
+- [Сборка в Jenkins](#сборка-в-jenkins)
+- [GitHub Actions](#github-actions)
+- [Интеграция с Allure Report](#интеграция-с-allure-report)
+- [Интеграция с Allure TestOps](#интеграция-с-allure-testops)
+- [Уведомления в Telegram](#уведомления-в-telegram)
+
+---
+
+## Описание
+
+Дипломный проект по автоматизации тестирования, включающий **UI** и **API** тесты.
+
+**UI тесты** — 5 функциональных автотестов для приложения [Conduit](https://conduit-realworld-example-app.onrender.com/) (платформа для публикации статей).
+
+**API тесты** — 5 функциональных автотестов для сервиса [API Challenges](https://apichallenges.eviltester.com/).
+
+**Ручные тест-кейсы** — 5 тест-кейсов для Conduit, оформленных в Allure TestOps.
+
+---
+
+## Технологии и инструменты
+
+<div align="center">
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/playwright/playwright-original.svg" title="Playwright" alt="Playwright" width="50" height="50"/>
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" title="JavaScript" alt="JavaScript" width="50" height="50"/>
+  <img src="https://raw.githubusercontent.com/allure-framework/allure2/main/.idea/icon.png" title="Allure Report" alt="Allure Report" width="50" height="50"/>
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/jenkins/jenkins-original.svg" title="Jenkins" alt="Jenkins" width="50" height="50"/>
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/githubactions/githubactions-original.svg" title="GitHub Actions" alt="GitHub Actions" width="50" height="50"/>
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/git/git-original.svg" title="Git" alt="Git" width="50" height="50"/>
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/github/github-original.svg" title="GitHub" alt="GitHub" width="50" height="50"/>
+</div>
+
+<br/>
+
+| Инструмент | Назначение |
+|------------|------------|
+| **Playwright** | Фреймворк для автоматизации UI и API тестов |
+| **JavaScript** | Язык программирования |
+| **Faker.js** | Генерация тестовых данных |
+| **Allure Report** | Визуализация результатов тестирования |
+| **Allure TestOps** | Система управления тестированием |
+| **Jenkins** | CI/CD сервер |
+| **GitHub Actions** | CI/CD платформа |
+
+---
+
+## Архитектура проекта
+
+```
+diplomaProject/
+├── src/
+│   ├── pages/              # Page Object классы (UI)
+│   ├── services/           # Service Object классы (API)
+│   └── helpers/
+│       ├── builders/       # Builder паттерн для тестовых данных
+│       └── fixtures/       # Playwright фикстуры
+├── tests/
+│   ├── uiFunctionalTests.spec.js
+│   └── apiFunctionalTests.spec.js
+├── notifications/          # Конфигурация Telegram уведомлений
+└── playwright.config.js
+```
+
+**Применённые паттерны:**
+- **Page Object Model** — для UI тестов
+- **Service Object Model** — для API тестов
+- **Builder Pattern** — для генерации тестовых данных
+- **Fixtures** — для переиспользования настроек
+
+---
+
+## Настройка окружения
+
+### Установка зависимостей
+
+```bash
+npm install
+npx playwright install --with-deps
+```
+
+---
+
+## Запуск тестов
+
+### Запуск всех тестов
+
+```bash
+npm test
+```
+
+### Запуск в UI режиме
+
+```bash
+npm run ui
+```
+
+### Генерация Allure отчёта
+
+```bash
+npx allure generate --clean
+npx allure open
+```
+
+---
+
+## Сборка в Jenkins
+
+Для доступа в Jenkins необходимо пройти регистрацию на платформе [Jenkins](https://jenkins.autotests.cloud/).
+
+Для запуска сборки нажмите кнопку **Build now**.
+
+<p align="center">
+  <img src="media/jenkins.png" alt="Jenkins Build" width="800"/>
+</p>
+
+После завершения сборки в разделе **Build History** появится значок **Allure Report** для просмотра детализированного отчёта.
+
+---
+
+## GitHub Actions
+
+Тесты автоматически запускаются при:
+- Push в ветку `main`
+- Ручном запуске (workflow_dispatch)
+
+### Шаги workflow:
+
+1. **Checkout** — клонирование репозитория
+2. **Setup Node.js** — установка Node.js
+3. **Install packages** — установка зависимостей (`npm ci`)
+4. **Install browsers** — установка браузеров Playwright
+5. **Run tests** — запуск тестов (`npm t`)
+6. **Generate Allure report** — генерация single-file отчёта
+7. **Upload artifacts** — сохранение отчётов как артефактов
+
+<p align="center">
+  <img src="media/github-actions.png" alt="GitHub Actions" width="800"/>
+</p>
+
+---
+
+## Интеграция с Allure Report
+
+### Диаграммы прохождения тестов
+
+`ALLURE REPORT` — общая статистика и диаграмма с процентом успешных/упавших тестов
+
+`TREND` — тенденция выполнения тестов по всем запускам
+
+`SUITES` — распределение тестов по сьютам
+
+<p align="center">
+  <img src="media/allure-overview.png" alt="Allure Overview" width="800"/>
+</p>
+
+### Развёрнутый результат прохождения тестов
+
+<p align="center">
+  <img src="media/allure-suites.png" alt="Allure Suites" width="800"/>
+</p>
+
+---
+
+## Интеграция с Allure TestOps
+
+Результаты тестов автоматически передаются в [Allure TestOps](https://allure.autotests.cloud/).
+
+### Дашборд
+
+<p align="center">
+  <img src="media/testops-dashboard.png" alt="Allure TestOps Dashboard" width="800"/>
+</p>
+
+### Тест-кейсы
+
+<p align="center">
+  <img src="media/testops-tests.png" alt="Allure TestOps Tests" width="800"/>
+</p>
+
+---
+
+## Уведомления в Telegram
+
+После завершения сборки бот в Telegram автоматически отправляет сообщение с результатами тестирования.
+
+<p align="center">
+  <img src="media/telegram.png" alt="Telegram Notification" width="400"/>
+</p>
+
+---
+
+<p align="center">
+  Made with ❤️ using Playwright
+</p>
+
