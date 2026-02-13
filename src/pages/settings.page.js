@@ -1,3 +1,5 @@
+import { test } from '@playwright/test';
+
 export class SettingsPage {
 
     constructor(page) {
@@ -13,19 +15,27 @@ export class SettingsPage {
     }
 
     async fillName(newName) {
-        await this.nameInput.click();
-        await this.nameInput.fill(newName);
+        return test.step("Change name in 'Name' field", async (step) => {
+            await this.nameInput.click();
+            await this.nameInput.fill(newName);
+        })
     }
 
     async clickUpdateSettingsButton() {
-        await this.updateSettingsButton.click();
+        return test.step("Click 'Update settings' button", async (step) => {
+            await this.updateSettingsButton.click();
+        })
     }
 
     async clickUserMenuDropdownButton() {
-        await this.userMenuDropdownButton.click();
+        return test.step("Click 'User' menu dropdown button ", async (step) => {
+            await this.userMenuDropdownButton.click();
+        })
     }
 
     async clickSettingsMenuButton() {
-        await this.settingsMenuButton.click();
+        return test.step("Click 'Settings' menu dropdown button ", async (step) => {
+            await this.settingsMenuButton.click();
+        })
     }
 }

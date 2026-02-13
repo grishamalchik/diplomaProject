@@ -8,9 +8,7 @@ import { TodoBuilder } from '../src/helpers/builders';
 let token;
 let defaultTestTodoResponse;
 
-
-
-test.describe('API тесты', () => {
+test.describe('API tests', () => {
     test.beforeAll(async ({ api }, testInfo) => {
         let response = await api.challenger.post(testInfo);
         token = response.headers['x-challenger'];
@@ -21,7 +19,7 @@ test.describe('API тесты', () => {
         defaultTestTodoResponse = await api.todos.createNewTodo(testInfo, token, newTodoData);
     });
 
-    test("Юзер может получить конкретный туду", async ({ api }, testInfo) => {
+    test("User can get specific to-do list item", async ({ api }, testInfo) => {
         let defaultTestTodoBody = await defaultTestTodoResponse.json();
         let todoId = defaultTestTodoBody.id;
 
@@ -31,8 +29,7 @@ test.describe('API тесты', () => {
     });
 
 
-    test("Юзер может получить список тудус с фильтром done", async ({ api }, testInfo) => {
-
+    test("User can get the list of to-do list items filtered by 'Done' status", async ({ api }, testInfo) => {
         const firstNewTodoData = new TodoBuilder().withTitle().withDoneStatus(true).withDescription().build();
         const secondNewTodoData = new TodoBuilder().withTitle().withDoneStatus(false).withDescription().build();
         let firstResponse = await api.todos.createNewTodo(testInfo, token, firstNewTodoData);
@@ -46,7 +43,7 @@ test.describe('API тесты', () => {
     });
 
 
-    test("Юзер может создать туду", async ({ api }, testInfo) => {
+    test("User can create to-do list item", async ({ api }, testInfo) => {
         const newTodoData = new TodoBuilder().withTitle().withDoneStatus().withDescription().build();
 
         let createdResponse = await api.todos.createNewTodo(testInfo, token, newTodoData);
@@ -55,12 +52,9 @@ test.describe('API тесты', () => {
         expect(createdTodoBody.title).toBe(newTodoData.title);
     });
 
-    test("Юзер может изменить заголовок туду", async ({ api }, testInfo) => {
-
+    test("User can change the title of the to-do list item", async ({ api }, testInfo) => {
         const newTitle = faker.company.buzzPhrase();
-
         const defaultTestTodoBody = await defaultTestTodoResponse.json();
-
         let todoId = defaultTestTodoBody.id;
 
         let createdNewTitleResponse = await api.todos.updateTodoTitle(testInfo, token, todoId, newTitle);
@@ -69,17 +63,13 @@ test.describe('API тесты', () => {
         expect(todoWithNewTitleBody.title).toBe(newTitle);
     });
 
-    test("Юзер может удалить туду", async ({ api }, testInfo) => {
-
+    test("User can delete a to-do list item", async ({ api }, testInfo) => {
         const defaultTestTodoBody = await defaultTestTodoResponse.json();
-
         let todoId = defaultTestTodoBody.id;
 
         await api.todos.deleteTodo(testInfo, token, todoId);
-
         let getDeletedTodoByIdResponse = await api.todos.getTodoById(testInfo, token, todoId);
 
         expect(getDeletedTodoByIdResponse.status).toBe(404);
     });
-
 });

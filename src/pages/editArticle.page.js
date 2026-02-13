@@ -1,3 +1,5 @@
+import { test } from '@playwright/test';
+
 export class EditArticlePage {
 
     constructor(page) {
@@ -10,11 +12,15 @@ export class EditArticlePage {
     }
 
     async fillArticleBody(newBody) {
+        return test.step('Enter new text in the body of the article', async (step) => {
         await this.articleBodyInput.click();
         await this.articleBodyInput.fill(newBody);
+        })
     }
 
     async clickUpdateArticleButton() {
+        return test.step('Update article', async (step) => {
         await this.updateArticleButton.click();
+        })
     }
 }

@@ -1,3 +1,5 @@
+import { test } from '@playwright/test';
+
 export class RegisterPage {
 
     constructor(page) {
@@ -10,7 +12,7 @@ export class RegisterPage {
     }
 
     async register(name, email, password) {
-
+        return test.step('Register new user', async (step) => {
         await this.nameInput.click();
         await this.nameInput.fill(name);
 
@@ -21,5 +23,6 @@ export class RegisterPage {
         await this.passwordInput.fill(password);
 
         await this.signupButton.click();
+        })
     }
 }
