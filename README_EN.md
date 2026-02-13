@@ -43,8 +43,6 @@ A diploma project for test automation, including **UI** and **API** tests.
   <img src="https://raw.githubusercontent.com/allure-framework/allure2/main/.idea/icon.png" title="Allure Report" alt="Allure Report" width="50" height="50"/>
   <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/jenkins/jenkins-original.svg" title="Jenkins" alt="Jenkins" width="50" height="50"/>
   <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/githubactions/githubactions-original.svg" title="GitHub Actions" alt="GitHub Actions" width="50" height="50"/>
-  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/git/git-original.svg" title="Git" alt="Git" width="50" height="50"/>
-  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/github/github-original.svg" title="GitHub" alt="GitHub" width="50" height="50"/>
 </div>
 
 <br/>
@@ -127,7 +125,7 @@ To access Jenkins, register on the [Jenkins](https://jenkins.autotests.cloud/) p
 To start a build, click the **Build now** button.
 
 <p align="center">
-  <img src="media/jenkins.png" alt="Jenkins Build" width="800"/>
+  <img src="media/jenkins_screenshot.png" alt="Jenkins Build" width="800"/>
 </p>
 
 After the build is complete, the **Allure Report** icon will appear in the **Build History** section for viewing detailed reports.
@@ -151,29 +149,27 @@ Tests are automatically triggered by:
 7. **Upload artifacts** — save reports as artifacts
 
 <p align="center">
-  <img src="media/github-actions.png" alt="GitHub Actions" width="800"/>
+  <img src="media/githubactions_screenshot.png" alt="GitHub Actions" width="800"/>
 </p>
 
 ---
 
 ## Allure Report Integration
 
-### Test Execution Charts
+Two versions of Allure are used in this project:
+- **Allure 2** — in Jenkins (classic report)
+- **Allure 3** — in GitHub Actions and locally (new interface)
 
-`ALLURE REPORT` — overall statistics and chart showing pass/fail percentages
-
-`TREND` — test execution trends across all runs
-
-`SUITES` — test distribution by suites
+### Allure 2 (Jenkins)
 
 <p align="center">
-  <img src="media/allure-overview.png" alt="Allure Overview" width="800"/>
+  <img src="media/allurereport-2.png" alt="Allure 2 Report (Jenkins)" width="800"/>
 </p>
 
-### Detailed Test Results
+### Allure 3 (GitHub Actions / locally)
 
 <p align="center">
-  <img src="media/allure-suites.png" alt="Allure Suites" width="800"/>
+  <img src="media/allurereport3.png" alt="Allure 3 Report (GitHub)" width="800"/>
 </p>
 
 ---
@@ -182,16 +178,14 @@ Tests are automatically triggered by:
 
 Test results are automatically sent to [Allure TestOps](https://allure.autotests.cloud/).
 
-### Dashboard
-
 <p align="center">
-  <img src="media/testops-dashboard.png" alt="Allure TestOps Dashboard" width="800"/>
+  <img src="media/alluretestops_screenshot.png" alt="Allure TestOps" width="800"/>
 </p>
 
-### Test Cases
+### Manual Test Cases
 
 <p align="center">
-  <img src="media/testops-tests.png" alt="Allure TestOps Tests" width="800"/>
+  <img src="media/manualtests.png" alt="Allure TestOps Manual Tests" width="800"/>
 </p>
 
 ---

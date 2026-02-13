@@ -43,8 +43,6 @@
   <img src="https://raw.githubusercontent.com/allure-framework/allure2/main/.idea/icon.png" title="Allure Report" alt="Allure Report" width="50" height="50"/>
   <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/jenkins/jenkins-original.svg" title="Jenkins" alt="Jenkins" width="50" height="50"/>
   <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/githubactions/githubactions-original.svg" title="GitHub Actions" alt="GitHub Actions" width="50" height="50"/>
-  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/git/git-original.svg" title="Git" alt="Git" width="50" height="50"/>
-  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/github/github-original.svg" title="GitHub" alt="GitHub" width="50" height="50"/>
 </div>
 
 <br/>
@@ -127,7 +125,7 @@ npx allure open
 Для запуска сборки нажмите кнопку **Build now**.
 
 <p align="center">
-  <img src="media/jenkins.png" alt="Jenkins Build" width="800"/>
+  <img src="media/jenkins_screenshot.png" alt="Jenkins Build" width="800"/>
 </p>
 
 После завершения сборки в разделе **Build History** появится значок **Allure Report** для просмотра детализированного отчёта.
@@ -151,29 +149,27 @@ npx allure open
 7. **Upload artifacts** — сохранение отчётов как артефактов
 
 <p align="center">
-  <img src="media/github-actions.png" alt="GitHub Actions" width="800"/>
+  <img src="media/githubactions_screenshot.png" alt="GitHub Actions" width="800"/>
 </p>
 
 ---
 
 ## Интеграция с Allure Report
 
-### Диаграммы прохождения тестов
+В проекте используются две версии Allure:
+- **Allure 2** — в Jenkins (классический отчёт)
+- **Allure 3** — в GitHub Actions и локально (новый интерфейс)
 
-`ALLURE REPORT` — общая статистика и диаграмма с процентом успешных/упавших тестов
-
-`TREND` — тенденция выполнения тестов по всем запускам
-
-`SUITES` — распределение тестов по сьютам
+### Allure 2 (Jenkins)
 
 <p align="center">
-  <img src="media/allure-overview.png" alt="Allure Overview" width="800"/>
+  <img src="media/allurereport-2.png" alt="Allure 2 Report (Jenkins)" width="800"/>
 </p>
 
-### Развёрнутый результат прохождения тестов
+### Allure 3 (GitHub Actions / локально)
 
 <p align="center">
-  <img src="media/allure-suites.png" alt="Allure Suites" width="800"/>
+  <img src="media/allurereport3.png" alt="Allure 3 Report (GitHub)" width="800"/>
 </p>
 
 ---
@@ -182,16 +178,14 @@ npx allure open
 
 Результаты тестов автоматически передаются в [Allure TestOps](https://allure.autotests.cloud/).
 
-### Дашборд
-
 <p align="center">
-  <img src="media/testops-dashboard.png" alt="Allure TestOps Dashboard" width="800"/>
+  <img src="media/alluretestops_screenshot.png" alt="Allure TestOps" width="800"/>
 </p>
 
-### Тест-кейсы
+### Ручные тест-кейсы
 
 <p align="center">
-  <img src="media/testops-tests.png" alt="Allure TestOps Tests" width="800"/>
+  <img src="media/manualtests.png" alt="Allure TestOps Manual Tests" width="800"/>
 </p>
 
 ---
