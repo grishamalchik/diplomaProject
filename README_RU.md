@@ -200,7 +200,3 @@ npx allure open
 
 ---
 
-<p align="center">
-  Made with ❤️ using Playwright
-</p>
-
