@@ -120,6 +120,10 @@ npx allure open
 
 ## Jenkins Build
 
+The project is configured to run in Jenkins CI/CD environment.
+
+🔗 **[View Jenkins Job](https://jenkins.autotests.cloud/job/005-hipstaboy-diplomajs/)**
+
 To access Jenkins, register on the [Jenkins](https://jenkins.autotests.cloud/) platform.
 
 To start a build, click the **Build now** button.

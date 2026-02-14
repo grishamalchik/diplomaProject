@@ -120,6 +120,10 @@ npx allure open
 
 ## Сборка в Jenkins
 
+Проект настроен для запуска в Jenkins CI/CD.
+
+🔗 **[Открыть Jenkins Job](https://jenkins.autotests.cloud/job/005-hipstaboy-diplomajs/)**
+
 Для доступа в Jenkins необходимо пройти регистрацию на платформе [Jenkins](https://jenkins.autotests.cloud/).
 
 Для запуска сборки нажмите кнопку **Build now**.
