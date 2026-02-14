@@ -7,9 +7,7 @@ on:
 # manual run
   workflow_dispatch:
 
-# шпаргалка
-# ${{secrets.SECRETREPOSITORY}}
-# ${{vars.SHAREDVARIABLE}}
+
 jobs:
   diplomaTests:
     runs-on: ubuntu-latest
