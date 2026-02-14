@@ -200,7 +200,3 @@ After the build is complete, a Telegram bot automatically sends a message with t
 
 ---
 
-<p align="center">
-  Made with ❤️ using Playwright
-</p>
-
