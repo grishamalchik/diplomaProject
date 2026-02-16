@@ -21,9 +21,6 @@ jobs:
       - name: Install browsers
         run: npx playwright install --with-deps
       - name: Run tests
-        env:
-          telegramPassword: ${{secrets.SECRETREPOSITORY}}
-          telegramId: ${{vars.SHAREDVARIABLE}}
         run: npm t
       - name: Generate allure 3 report in a single file
         run: npx allure awesome ./allure-results --single-file
@@ -43,6 +40,9 @@ jobs:
         if: always()
 
       - name: Send Telegram notification
+        env:
+          TELEGRAM_TOKEN: ${{secrets.SECRETREPOSITORY}}
+          TELEGRAM_CHAT: ${{vars.SHAREDVARIABLE}}
         run: |
           java "-DconfigFile=notifications/config.json" -jar notifications/allure-notifications-4.11.0.jar
         continue-on-error: true

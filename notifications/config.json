@@ -10,8 +10,8 @@
         "enableSuitesPublishing": false
     },
     "telegram": {
-        "token": "telegramPassword",
-        "chat": "telegramId",
+        "token": "${TELEGRAM_TOKEN}",
+        "chat": "${TELEGRAM_CHAT}",
         "replyTo": ""
     }
 }
