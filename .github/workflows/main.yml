@@ -41,8 +41,8 @@ jobs:
 
       - name: Send Telegram notification
         env:
-          TELEGRAM_TOKEN: ${{secrets.SECRETREPOSITORY}}
-          TELEGRAM_CHAT: ${{vars.SHAREDVARIABLE}}
+          SECRETREPOSITORY: ${{secrets.SECRETREPOSITORY}}
+          SHAREDVARIABLE: ${{vars.SHAREDVARIABLE}}
         run: |
           java "-DconfigFile=notifications/config.json" -jar notifications/allure-notifications-4.11.0.jar
         continue-on-error: true

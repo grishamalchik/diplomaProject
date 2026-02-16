@@ -10,8 +10,8 @@
         "enableSuitesPublishing": false
     },
     "telegram": {
-        "token": "${TELEGRAM_TOKEN}",
-        "chat": "${TELEGRAM_CHAT}",
+        "token": "${SECRETREPOSITORY}",
+        "chat": "${SHAREDVARIABLE}",
         "replyTo": ""
     }
 }
