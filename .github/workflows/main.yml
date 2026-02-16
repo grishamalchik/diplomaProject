@@ -29,6 +29,25 @@ jobs:
         run: npx allure awesome ./allure-results --single-file
         continue-on-error: true
         if: always()
+
+      - name: Convert summary.json to Allure 2 format
+        run: node scripts/allure2-widgets-summary.js
+        continue-on-error: true
+        if: always()
+
+      - name: Setup Java for notifications
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+        if: always()
+
+      - name: Send Telegram notification
+        run: |
+          java "-DconfigFile=notifications/config.json" -jar notifications/allure-notifications-4.11.0.jar
+        continue-on-error: true
+        if: always()
+
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v6.0.0
         continue-on-error: true

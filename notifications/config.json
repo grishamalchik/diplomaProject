@@ -1,8 +1,8 @@
 {
     "base": {
         "project": "hipstaboy diploma project js",
-        "environment": "some env",
-        "comment": "some comment",
+        "environment": "https://realworld.qa.guru/ for UI tests, https://apichallenges.eviltester.com/ for API tests",
+        "comment": "Result of tests",
         "reportLink": "",
         "language": "en",
         "allureFolder": "allure-report",
@@ -10,8 +10,8 @@
         "enableSuitesPublishing": false
     },
     "telegram": {
-        "token": "",
-        "chat": "",
+        "token": "telegramPassword",
+        "chat": "telegramId",
         "replyTo": ""
     }
 }
