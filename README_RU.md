@@ -199,7 +199,7 @@ npx allure open
 После завершения сборки бот в Telegram автоматически отправляет сообщение с результатами тестирования.
 
 <p align="center">
-  <img src="media/telegram.png" alt="Telegram Notification" width="400"/>
+  <img src="media/telegram_screen.png.jpg" alt="Telegram Notification" width="400"/>
 </p>
 
 ---

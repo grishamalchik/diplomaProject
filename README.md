@@ -199,7 +199,7 @@ Test results are automatically sent to [Allure TestOps](https://allure.autotests
 After the build is complete, a Telegram bot automatically sends a message with test results.
 
 <p align="center">
-  <img src="media/telegram.png" alt="Telegram Notification" width="400"/>
+  <img src="media/telegram_screen.png.jpg" alt="Telegram Notification" width="400"/>
 </p>
 
 ---
