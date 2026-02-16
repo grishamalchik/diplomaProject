@@ -43,6 +43,7 @@ jobs:
         env:
           SECRETREPOSITORY: ${{secrets.SECRETREPOSITORY}}
           SHAREDVARIABLE: ${{vars.SHAREDVARIABLE}}
+          REPORT_LINK: https://github.com/${{github.repository}}/actions/runs/${{github.run_id}}
         run: |
           envsubst < notifications/config.json > notifications/config_resolved.json
           java "-DconfigFile=notifications/config_resolved.json" -jar notifications/allure-notifications-4.11.0.jar

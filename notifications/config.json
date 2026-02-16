@@ -3,7 +3,7 @@
         "project": "hipstaboy diploma project js",
         "environment": "https://realworld.qa.guru/ for UI tests, https://apichallenges.eviltester.com/ for API tests",
         "comment": "Result of tests",
-        "reportLink": "",
+        "reportLink": "${REPORT_LINK}",
         "language": "en",
         "allureFolder": "allure-report",
         "enableChart": false,
