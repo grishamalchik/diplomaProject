@@ -44,7 +44,8 @@ jobs:
           SECRETREPOSITORY: ${{secrets.SECRETREPOSITORY}}
           SHAREDVARIABLE: ${{vars.SHAREDVARIABLE}}
         run: |
-          java "-DconfigFile=notifications/config.json" -jar notifications/allure-notifications-4.11.0.jar
+          envsubst < notifications/config.json > notifications/config_resolved.json
+          java "-DconfigFile=notifications/config_resolved.json" -jar notifications/allure-notifications-4.11.0.jar
         continue-on-error: true
         if: always()
 
