@@ -1,4 +1,4 @@
-<h1 align="center">Diploma Project: UI and API Test Automation</h1>
+<h1 align="center">Diploma Project: UI and API Test Automation with Playwright</h1>
 
 <p align="center">
   <img src="https://img.shields.io/badge/Playwright-45ba4b?style=for-the-badge&logo=Playwright&logoColor=white" alt="Playwright"/>
