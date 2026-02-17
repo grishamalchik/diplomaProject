@@ -13,29 +13,24 @@ export class CreatedArticlePage {
         this.articleBody = page.locator('.article-content p');
     }
 
-    async fillNewCommentTextbox(commentText) {
-        return test.step('Enter new comment text', async (step) => {
-        await this.newCommentTextbox.click();
-        await this.newCommentTextbox.fill(commentText);
-        })
-    }
-
-    async clickPostCommentButton() {
-        return test.step('Post new comment', async (step) => {
-        await this.postCommentButton.click();
+    async addNewComment(commentText) {
+        return test.step("Enter new comment text and click 'Post comment' button", async (step) => {
+            await this.newCommentTextbox.click();
+            await this.newCommentTextbox.fill(commentText);
+            await this.postCommentButton.click();
         })
     }
 
     async clickEditArticleButton() {
         return test.step("Click 'Edit article' button", async (step) => {
-        await this.editArticleButton.click();
+            await this.editArticleButton.click();
         })
     }
 
     async deleteArticle() {
         return test.step('Delete article', async (step) => {
-        this.page.once('dialog', dialog => dialog.accept());
-        await this.deleteArticleButton.click();
+            this.page.once('dialog', dialog => dialog.accept());
+            await this.deleteArticleButton.click();
         })
     }
 }

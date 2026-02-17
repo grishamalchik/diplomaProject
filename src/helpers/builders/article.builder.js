@@ -10,15 +10,20 @@ export class ArticleBuilder {
         this.description = description ?? faker.lorem.paragraph();
         return this;
     }
+
     withBody(body) {
         this.body = body ?? faker.lorem.text();
         return this;
-
     }
+
     withTags(tags) {
         this.tags = tags ?? `${faker.lorem.word()}, ${faker.lorem.word()}, ${faker.lorem.word()}`;
         return this;
+    }
 
+    withComment(comment) {
+        this.comment = comment ?? faker.lorem.text();
+        return this;
     }
     build() {
         const result = { ...this };

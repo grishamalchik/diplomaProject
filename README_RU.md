@@ -93,6 +93,27 @@ npm install
 npx playwright install --with-deps
 ```
 
+### Переменные окружения
+
+Проект использует переменные окружения для настройки URL тестов. По умолчанию используются:
+- **BASE_URL**: `https://realworld.qa.guru/` (для UI тестов)
+- **API_URL**: `https://apichallenges.eviltester.com/` (для API тестов)
+
+Чтобы переопределить эти значения, создайте файл `.env` в корне проекта:
+
+```bash
+cp .env.example .env
+```
+
+Затем отредактируйте `.env` и укажите свои URL:
+
+```
+BASE_URL=https://your-custom-ui-url.com/
+API_URL=https://your-custom-api-url.com/
+```
+
+> **Примечание**: Файл `.env` игнорируется Git. Используйте `.env.example` как шаблон.
+
 ---
 
 ## Запуск тестов

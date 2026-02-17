@@ -2,7 +2,6 @@
 import { expect } from '@playwright/test';
 import { UserBuilder } from '../src/helpers/builders/index';
 import { ArticleBuilder } from '../src/helpers/builders/index';
-import { faker } from '@faker-js/faker';
 import { test } from '../src/helpers/fixtures/fixture';
 
 
@@ -18,12 +17,11 @@ test.describe('Tests with registered user', () => {
     });
 
     test('User can change their name', async ({ app }) => {
-        const newName = faker.person.fullName();
+        const newName = new UserBuilder().withName().build().name;
 
         await app.userHome.clickUserMenuDropdownButton();
         await app.userHome.clickSettingsMenuButton();
-        await app.settings.fillName(newName);
-        await app.settings.clickUpdateSettingsButton();
+        await app.settings.updateName(newName);
 
         await expect(app.settings.userMenuDropdownButton).toContainText(newName);
     });
@@ -33,8 +31,7 @@ test.describe('Tests with registered user', () => {
         const { title, description, body, tags } = article;
 
         await app.userHome.clickCreateNewArticleButton();
-        await app.newArticle.fillNewArticleFields(title, description, body, tags);
-        await app.newArticle.clickPublishArticleButton();
+        await app.newArticle.publishNewArticle(title, description, body, tags);
 
         await expect(app.createdArticle.articleHeading).toContainText(article.title);
     });
@@ -56,25 +53,22 @@ test.describe('Tests with registered user and created article', () => {
         await app.main.gotoRegister();
         await app.register.register(name, email, password);
         await app.userHome.clickCreateNewArticleButton();
-        await app.newArticle.fillNewArticleFields(title, description, body, tags);
-        await app.newArticle.clickPublishArticleButton();
+        await app.newArticle.publishNewArticle(title, description, body, tags);
     });
 
     test('User can add a comment to the article', async ({ app }) => {
-        const commentText = faker.lorem.text();
+        const commentText = new ArticleBuilder().withComment().build().comment;
 
-        await app.createdArticle.fillNewCommentTextbox(commentText);
-        await app.createdArticle.clickPostCommentButton();
+        await app.createdArticle.addNewComment(commentText);
 
         await expect(app.createdArticle.publishedCommentTextbox).toContainText(commentText);
     });
 
     test('User can edit the article', async ({ app }) => {
-        const newBody = faker.lorem.text();
+        const newBody = new ArticleBuilder().withBody().build().body;
 
         await app.createdArticle.clickEditArticleButton();
-        await app.editArticle.fillArticleBody(newBody);
-        await app.editArticle.clickUpdateArticleButton();
+        await app.editArticle.updateArticleBody(newBody);
 
         await expect(app.createdArticle.articleBody).toContainText(newBody);
     });

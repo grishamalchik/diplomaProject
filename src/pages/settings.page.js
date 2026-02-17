@@ -14,15 +14,10 @@ export class SettingsPage {
         this.settingsMenuButton = page.locator('a[href="#/settings"]')
     }
 
-    async fillName(newName) {
-        return test.step("Change name in 'Name' field", async (step) => {
+    async updateName(newName) {
+        return test.step("Change name in 'Name' field and click 'Update settings' button", async (step) => {
             await this.nameInput.click();
             await this.nameInput.fill(newName);
-        })
-    }
-
-    async clickUpdateSettingsButton() {
-        return test.step("Click 'Update settings' button", async (step) => {
             await this.updateSettingsButton.click();
         })
     }

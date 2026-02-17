@@ -14,4 +14,11 @@ export const test = base.extend({
         const api = new Api(request);
         await use(api);
     },
+
+    authenticatedApi: async ({ request }, use, testInfo) => {
+        const api = new Api(request);
+        const response = await api.challenger.post(testInfo);
+        api.token = response.headers['x-challenger'];
+        await use(api);
+    },
 });

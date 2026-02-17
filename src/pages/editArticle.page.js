@@ -11,16 +11,11 @@ export class EditArticlePage {
         this.tagsInput = page.getByRole('textbox', { name: 'Enter tags' });
     }
 
-    async fillArticleBody(newBody) {
-        return test.step('Enter new text in the body of the article', async (step) => {
-        await this.articleBodyInput.click();
-        await this.articleBodyInput.fill(newBody);
-        })
-    }
-
-    async clickUpdateArticleButton() {
-        return test.step('Update article', async (step) => {
-        await this.updateArticleButton.click();
+    async updateArticleBody(newBody) {
+        return test.step("Enter new text in the body of the article and click 'Update article' button", async (step) => {
+            await this.articleBodyInput.click();
+            await this.articleBodyInput.fill(newBody);
+            await this.updateArticleButton.click();
         })
     }
 }

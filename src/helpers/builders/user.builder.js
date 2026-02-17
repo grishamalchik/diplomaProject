@@ -7,7 +7,7 @@ export class UserBuilder {
     }
 
     withName(name) {
-        this.name = name ?? faker.person.fullName(); // 'Allen Brown'
+        this.name = name ?? faker.person.fullName();
         return this;
 
     }

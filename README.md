@@ -93,6 +93,27 @@ npm install
 npx playwright install --with-deps
 ```
 
+### Environment Variables
+
+The project uses environment variables for configuring test URLs. By default, tests use:
+- **BASE_URL**: `https://realworld.qa.guru/` (for UI tests)
+- **API_URL**: `https://apichallenges.eviltester.com/` (for API tests)
+
+To override these values, create a `.env` file in the project root:
+
+```bash
+cp .env.example .env
+```
+
+Then edit `.env` and set your custom URLs:
+
+```
+BASE_URL=https://your-custom-ui-url.com/
+API_URL=https://your-custom-api-url.com/
+```
+
+> **Note**: The `.env` file is ignored by Git. Use `.env.example` as a template.
+
 ---
 
 ## Running Tests

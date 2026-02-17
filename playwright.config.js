@@ -1,13 +1,12 @@
 // @ts-check
 import { defineConfig, devices } from '@playwright/test';
+import dotenv from 'dotenv';
 
 /**
  * Read environment variables from file.
  * https://github.com/motdotla/dotenv
  */
-// import dotenv from 'dotenv';
-// import path from 'path';
-// dotenv.config({ path: path.resolve(__dirname, '.env') });
+dotenv.config();
 
 /**
  * @see https://playwright.dev/docs/test-configuration
@@ -28,8 +27,8 @@ export default defineConfig({
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('')`. */
-    baseURL: 'https://realworld.qa.guru/',
-    apiUrl: 'https://apichallenges.eviltester.com/',
+    baseURL: process.env.BASE_URL || 'https://realworld.qa.guru/',
+    apiUrl: process.env.API_URL || 'https://apichallenges.eviltester.com/',
     screenshot: "only-on-failure",
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
